@@ -28,7 +28,7 @@ public class ELenta {
     }
 
     @Test
-    public void registerPositiveTest() {
+    public void regPositiveTest() {
         int random = (int) Math.round(Math.random()*100000);
         WebElement searchInput = driver.findElement(By.id("UserName"));
         searchInput.sendKeys("zinkevio1"+random);
@@ -38,11 +38,12 @@ public class ELenta {
         searchInput3.sendKeys("Kodas123");
         WebElement searchInput4 = driver.findElement(By.id("Password2"));
         searchInput4.sendKeys("Kodas123");
-        driver.findElement(By.id("bigNavBtn2")).click();
+        driver.findElement(By.className("bigNavBtn2")).click();
         String successMsg = driver.findElement(By.xpath("//*[@id=\"main-container\"]/div[2]/p")).getText();
+        Assert.assertEquals(successMsg,"Jūs sėkmingai prisiregistravote!");
     }
     @Test
-    public void registerNegativeTest1() {
+    public void regNegativeTestWithoutName() {
         driver.findElement(By.id("UserName")).sendKeys("");
         driver.findElement(By.id("Email")).sendKeys("Olga@gmail.com");
         driver.findElement(By.id("Password")).sendKeys("Kodas123");
@@ -50,9 +51,10 @@ public class ELenta {
         driver.findElement(By.className("bigNavBtn2")).click();
         String errorMsg1 = driver.findElement(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[1]/td[2]/span")).getText();
         Assert.assertEquals(errorMsg1,"Įveskite vartotojo vardą.");
+
     }
     @Test
-    public void registerNegativeTest2() {
+    public void regNegativeTestWithoutEmail() {
         driver.findElement(By.id("UserName")).sendKeys("olga111");
         driver.findElement(By.id("Email")).sendKeys("");
         driver.findElement(By.id("Password")).sendKeys("Kodas123");
@@ -62,7 +64,7 @@ public class ELenta {
         Assert.assertEquals(errorMsg2, "Įveskite el. pašto adresą.");
     }
     @Test
-    public void registerNegativeTest3() {
+    public void regNegativeTestWithoutPsw() {
         int random3 = (int) Math.round(Math.random() * 100000);
         driver.findElement(By.id("UserName")).sendKeys("Olga111" + random3);
         driver.findElement(By.id("Email")).sendKeys(random3+"Olga@gmail.com");
@@ -74,7 +76,7 @@ public class ELenta {
     }
 
     @Test
-    public void registerNegativeTest4() {
+    public void regNegativeTestWithoutPsw2() {
         int random4 = (int) Math.round(Math.random() * 100000);
         driver.findElement(By.id("UserName")).sendKeys("Olga111" + random4);
         driver.findElement(By.id("Email")).sendKeys(random4 + "Olga@gmail.com");
@@ -84,6 +86,7 @@ public class ELenta {
         String errorMsg4 = driver.findElement(By.xpath("//*[@id=\"Password2\"]")).getText();
         Assert.assertEquals(errorMsg4, "Pakartotinai neįvedėte slaptažodžio.");
     }
+
 
 
     }

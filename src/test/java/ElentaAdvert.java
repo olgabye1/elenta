@@ -37,16 +37,41 @@ public class ElentaAdvert {
         WebElement searchInput4 = driver.findElement(By.id("email"));
         searchInput4.sendKeys("olga123@gmail.com");
         driver.findElement(By.id("submit-button")).click();
-
-
-
-
-
-
-
+        WebElement upload_file= driver.findElement(By.xpath("//*[@id=\"inputfile\"]"));
+        upload_file.sendKeys("C:/Users/Olga/Desktop/tvarkytoja.jpeg");
+        driver.findElement(By.id("forward-button")).click();
 
 
     }
+    // Testo scenarijai
+    //1.Kai ivedamas 2 simboliu pavadinimas;
+    //2.Kai ivedamas >256 simboliu pavadinimas;
+    //3.Kai ivedamas 5 simboliu skelbimas;
+    //4.Kai ivedamas skelbimas tik skaitmenimis;
+    //5.Kai neivedamas miestas (positive, nes neprivalomas laukas);
+    //6.Kai miesto pavadinimas ivedamas su skaiciais/spec simboliais;
+    //7.Kai ivedamas per ilgas tel.nr.
+    //8.Kai ivedamas tel.nr.su spec.simboliais;
+    //9.Kai ivedamas tel.nr.su raide gale;
+    //10.Kai ivedamas el.pastas be @;
+    //11. Kai ivedamas el.pastas .l (vietoj .lt)
+    //12. kai ivedamas vieno skaiciaus/raides el.pastas, e.g.a@gmail.com
+    //13.Kai neivedamas el.pastas (positive, nes neprivalomas laukas)).
+    //14.kai neivedamas tel.nr.
+    //15.kai neivedamas skelbimo aprasymas.
+    //16.kai neivedamas Skelbimo pavadinimas.
+    //17. kai skelbimo pavadinime ivedamas keiksmazodis "fuck";
+    //18. kai skelbimo aprasyme ivedamas keiksmazodis "fuck";
+    //19. kai skelbimo Miestas dalyje ivedamas keiksmazodis "fuck";
+    //20.kai ivedami tik privalomi laukai (positive, nes neprivalomas laukas).
+
+
+
+
+
+
+
+
 
 
 }
